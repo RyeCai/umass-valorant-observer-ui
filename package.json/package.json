@@ -9,12 +9,6 @@
   "author": "Rycai/Captaincow285",
   "license": "ISC",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "webpack": "^5.73.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5"
+    "preact": "^10.8.2"
   }
 }
