@@ -41,26 +41,32 @@ def agent_request():
                     file += '-3'
                 elif ability['slot'] == 'Ultimate':
                     file += '-4'
+                elif agent['displayName'] == 'Astra' and ability['slot'] == 'Passive':
+                    file += '-5'
                 else:
                     continue
                 download_asset('displayIcon', cur_path, ability, file)
     else:
         print(agents.status_code)
 
-def gear_request(url, icon):
-    gear_list = requests.get(url).json()['data']
-    if gear_list:
-        gear_path = os.path.join(os.curdir, 'gear')
-        make_path(gear_path)
-        for gear in gear_list:
-            download_asset(icon, gear_path, gear, gear['displayName'])
+def generic_request(url, icon):
+    item_list = requests.get(url).json()['data']
+    item_category = url.rsplit('/', 1)[1]
+    if item_list:
+        item_path = os.path.join(os.curdir, item_category)
+        make_path(item_path)
+        for item in item_list:
+            download_asset(icon, item_path, item, item['displayName'])
     else:
-        print(gear_list.status_code)
-
+        print(item_list.status_code)
+    
 if __name__ == '__main__':
     AGENTS_URL = 'https://valorant-api.com/v1/agents'
     GEAR_URL = 'https://valorant-api.com/v1/gear'
     WEAPONS_URL = 'https://valorant-api.com/v1/weapons'
+    MAPS_URL = 'https://valorant-api.com/v1/maps'
     agent_request()
-    gear_request(WEAPONS_URL, 'killStreamIcon')
-    gear_request(GEAR_URL, 'displayIcon')
+    generic_request(WEAPONS_URL, 'killStreamIcon')
+    generic_request(GEAR_URL, 'displayIcon')
+    generic_request(MAPS_URL, 'splash')
+    
