@@ -1,3 +1,4 @@
+from tkinter.ttk import Style
 import wx
 from pathlib import Path
 from PIL import ImageTk,Image
@@ -6,16 +7,14 @@ from PIL import ImageTk,Image
 class HUD(wx.Frame):
 
     def __init__(self, parent, title):
-        super(HUD, self).__init__(parent, title=title, size=(1920, 1080))
-        # self.SetBackgroundStyle(wx.BG_STYLE_TRANSPARENT)
+        super(HUD, self).__init__(parent, title=title, size=(1920, 1080), style=wx.TRANSPARENT_WINDOW)
+        # self.SetTransparent(0)
         self.InitUI()
         self.Centre()
-
+        
     def InitUI(self):
 
-        self.panel = wx.Panel(self)
-
-        self.panel.SetBackgroundColour('red')
+        self.panel = wx.Panel(self, -1, style=wx.TRANSPARENT_WINDOW)
 
         self.LoadImages()
 
@@ -24,9 +23,9 @@ class HUD(wx.Frame):
         # images = wx.PaintDC(self)
 
         """
-        images.DrawBitmap(self.topBar, 100, 100)
-        images.DrawBitmap(self.leftPlayerBar, 0, 100)
-        images.DrawBitmap(self.rightPlayerBar, 200, 100)
+        #images.DrawBitmap(self.topBar, 100, 100)
+        #images.DrawBitmap(self.leftPlayerBar, 0, 100)
+        #images.DrawBitmap(self.rightPlayerBar, 200, 100)
         """
 
         
