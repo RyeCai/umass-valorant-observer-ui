@@ -90,6 +90,7 @@ body {
 .bottom-container {
     display: flex;
     justify-content: space-between;
+    margin: 0;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -103,4 +104,14 @@ body {
 .right-players {
     display: block;
     width: 393px;
+}
+
+.player {
+    width: 393px;
+    height: 104px;
+    background-image: url("../assets/UI/leftPlayerBar.png");
+}
+
+.agent {
+    width: 96px;
 }
