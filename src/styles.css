@@ -1,0 +1,106 @@
+/* UMass color: #6e6368 
+defending team: #8edfc2
+attacking: #d3697b
+*/
+body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #ddd;
+}
+
+.top-container {
+    display: flex;
+    justify-content: center;
+}
+
+.top-info {
+    width: 25%;
+}
+
+.map-score {
+
+}
+
+.map-info {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.rectangle {
+    height: 18px;
+    width: 128px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: #5c404c;
+    opacity: 0.8;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    
+}
+
+.match-info {
+    /* display: flex;
+    justify-content: center; */
+    width: 50%;
+    position: relative;
+    text-align: center;
+    font-weight: bolder;
+    font-stretch: extra-condensed;
+}
+
+.left-score {
+    position: absolute;
+    width: 10px;
+    /* right: 650px;
+    left: 330px; */
+    /* bottom: 10px; */
+}
+
+.right-score {
+    position: absolute;
+    right: 330px;
+    left: 650px;
+    /* bottom: 10px; */
+}
+
+.team-logo {
+    max-width: 50%;
+}
+
+.left-team-name {
+    display: flex;
+    position: absolute;
+    width: 25%;
+    left: 150px;
+    right: 710px;
+}
+
+.right-team-logo {
+    width: 80px;
+    position: absolute;
+    left: 150px;
+    right: 710px;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.left-players {
+    display: block;
+    width: 393px;
+}
+
+.right-players {
+    display: block;
+    width: 393px;
+}
