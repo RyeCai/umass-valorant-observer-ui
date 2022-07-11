@@ -16,10 +16,7 @@ canvas.create_rectangle(0, 0, 1920, 1080, fill='white', outline='white')
 topBarPath = Path("ui_assets/top_bar.png")
 leftPlayerBarPath = Path("ui_assets/leftPlayerBar.png")
 rightPlayerBarPath = Path("ui_assets/rightPlayerBar.png")
-transparencyPath = Path("ui_assets/transparency.png")
 
-transparency = ImageTk.PhotoImage(Image.open(transparencyPath))
-canvas.create_image(0, 0, anchor=NW, image=transparency)
 
 # Adds Top bar
 topBar = ImageTk.PhotoImage(Image.open(topBarPath))
