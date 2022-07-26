@@ -1,5 +1,5 @@
 /* UMass color: #6e6368 
-defending team: #8edfc2
+defending team: #28ae75
 attacking: #d3697b
 */
 body {
@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    color: #ddd;
+    color: #fff;
 }
 
 .top-container {
@@ -15,17 +15,29 @@ body {
     justify-content: center;
 }
 
-.top-info {
-    width: 25%;
-}
-
-.map-score {
-
-}
-
 .map-info {
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;    
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5vw;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+
+h1.round-score {
+    display: flex;
+    justify-content: center;
+    width: 33%;
+    font-size: 2.2vw;
+    height: 72px;
+}
+
+.top-info {
+    width: 25%;
 }
 
 .rectangle {
@@ -43,48 +55,60 @@ body {
     
 }
 
+
 .match-info {
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    justify-content: center;
     width: 50%;
-    position: relative;
-    text-align: center;
-    font-weight: bolder;
-    font-stretch: extra-condensed;
-}
-
-.left-score {
-    position: absolute;
-    width: 10px;
-    /* right: 650px;
-    left: 330px; */
-    /* bottom: 10px; */
-}
-
-.right-score {
-    position: absolute;
-    right: 330px;
-    left: 650px;
-    /* bottom: 10px; */
+    /* text-align: center; */
+    font-family: 'Oswald', sans-serif;
+    /* font-weight: 700; */
+    /* font-stretch: condensed; */
 }
 
 .team-logo {
-    max-width: 50%;
+    width: 50px;
+    max-height: 35px;
 }
 
-.left-team-name {
+.name-logo {
     display: flex;
-    position: absolute;
-    width: 25%;
-    left: 150px;
-    right: 710px;
+    justify-content: center;
+    align-items: center;
+    width: 43%;
+    height: 70px;
 }
 
-.right-team-logo {
-    width: 80px;
-    position: absolute;
-    left: 150px;
-    right: 710px;
+.left-team {
+    display: flex;
+    width: 40%;
+}
+
+#round-time {
+    width: 20%;
+}
+
+.right-team {
+    display: flex;
+    width: 40%;
+    /* margin-top: 10px;
+    margin-left: 50px; */
+}
+
+.left-team .name-logo {
+    margin-left: 16%;
+}
+
+.right-team .name-logo {
+    margin-right: 16%;
+}
+
+#top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 96px;
+    background-image: url("../assets/UI/top_bar.png");
 }
 
 .bottom-container {
@@ -98,7 +122,7 @@ body {
 
 .left-players {
     display: block;
-    width: 393px;
+    width: 390px;
 }
 
 .right-players {
@@ -107,11 +131,29 @@ body {
 }
 
 .player {
-    width: 393px;
-    height: 104px;
+    display: flex;
+    width: 390px;
+    height: 100px;
     background-image: url("../assets/UI/leftPlayerBar.png");
 }
 
 .agent {
-    width: 96px;
+    width: 94px;
+    margin-top: 5px;
+}
+
+.defending-hp {
+    background-color: #3cd190;
+    height: 10px;
+    width: 200px;
+}
+
+.attacker-hp {
+    background-color: #c71e2f;
+    height: 10px;
+    width: 200px;
+}
+
+.unusable-ability {
+    opacity: 60%;
 }
