@@ -2,6 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     </head>
     <body>
         <!-- <button>New Match</button> -->
@@ -13,14 +17,26 @@
                     <div class="rectangle">Decider: Ascent</div>
                 </div>
             </div>
-            <div style="width:50%" class="match-info">
-                <img src="../assets/UI/top_bar.png">
-                <!-- <div class="left-team">
-                    <img src="../assets/UI/fnatic.png" class="team-logo">
-                    <h1>FNC</h1>
+            <div class="match-info">
+                <div id="top-bar">
+                    <div class="left-team">
+                        <div class="name-logo">
+                            <img src="../assets/UI/fnatic.png" class="team-logo" id="team1">
+                            <h1 class="team-name">FNC</h1>
+                        </div>
+                        <div style="width: 8%;"></div>
+                        <h1 class="round-score">9</h1>
+                    </div>
+                    <div id="round-time"></div>
+                    <div class="right-team">
+                        <h1 class="round-score">3</h1>
+                        <div style="width: 8%;"></div>
+                        <div class="name-logo">
+                            <h1 class="team-name">FNC</h1>
+                            <img src="../assets/UI/fnatic.png" class="team-logo" id="team1">
+                        </div>
+                    </div>
                 </div>
-                <h1 class="left-score">9</h1>
-                <h1 class="right-score">3</h1> -->
             </div>
             <div class="top-info"></div>
         </div>
@@ -29,18 +45,22 @@
                 <div class="player" id="player1">
                     <!-- <img src="../assets/UI/leftPlayerBar.png" id="player1"> -->
                     <img src="../assets/agents/Astra/displayIcon.png" class="agent">
+                    <div class="ability1"></div>
+                    <div class="ability2"></div>
+                    <div class="ability3"></div>
+                    <div class="Ult"></div>
                 </div>
-                <img src="../assets/UI/leftPlayerBar.png" id="player2">
-                <img src="../assets/UI/leftPlayerBar.png" id="player3">
-                <img src="../assets/UI/leftPlayerBar.png" id="player4">
-                <img src="../assets/UI/leftPlayerBar.png" id="player5">
+                <div class="player" id="player2"></div>
+                <div class="player" id="player3"></div>
+                <div class="player" id="player4"></div>
+                <div class="player" id="player5"></div>
             </div>
             <div class="right-players">
-                <img src="../assets/UI/rightPlayerBar.png" id="player6">
-                <img src="../assets/UI/rightPlayerBar.png" id="player7">
-                <img src="../assets/UI/rightPlayerBar.png" id="player8">
-                <img src="../assets/UI/rightPlayerBar.png" id="player9">
-                <img src="../assets/UI/rightPlayerBar.png" id="player10">
+                <div class="player" id="player1"></div>
+                <div class="player" id="player2"></div>
+                <div class="player" id="player3"></div>
+                <div class="player" id="player4"></div>
+                <div class="player" id="player5"></div>
             </div>
         </div>
     </body>
