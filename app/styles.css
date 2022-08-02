@@ -55,7 +55,6 @@ h1.round-score {
     
 }
 
-
 .match-info {
     display: flex;
     justify-content: center;
@@ -128,6 +127,7 @@ h1.round-score {
 .right-players {
     display: block;
     width: 393px;
+    transform: scaleX(-1);
 }
 
 .player {
@@ -140,6 +140,42 @@ h1.round-score {
 .agent {
     width: 94px;
     margin-top: 5px;
+}
+
+.abilities {
+    margin-top: 5px;
+    height: 60%;
+    width: 75%;
+}
+
+.abilities img {
+    width: 50%;
+}
+
+.abilities > div {
+    width: 20%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.available-ability {
+    border-color: #eee;
+    border-width: 2px;
+    transform: rotate(90deg);
+    background-color: #eee;
+}
+
+.unavailable-ability {
+    border-color: #eee;
+    border-width: 2px;
+    transform: rotate(90deg);
+    background-color: #eee;
+}
+
+.weapon {
+    height: 40%;
+    width: 20%;
 }
 
 .defending-hp {
