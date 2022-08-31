@@ -1,17 +1,20 @@
-function MapInfo(props) {
+import React from "react"
+import {maps, mapScore, leftTeam, rightTeam} from "./components/match-variables.js"
+
+function MapInfo() {
     return (
         <div className="top-info">
             <div className="map-info">
-                {props.current && <div className="rectangle">
-                    Current: {props.current}
-                    <img src={props.team1Logo}/>
+                {maps.current && <div className="rectangle">
+                    Current: {maps.current}
+                    <img src={rightTeam.logoPath}/>
                 </div>}
-                {props.next && <div className="rectangle">
-                    Next Map: {props.next}
-                    <img src={props.team2Logo}/>
+                {maps.next && <div className="rectangle">
+                    Next Map: {maps.next}
+                    <img src={leftTeam.logoPath}/>
                 </div>}
-                {props.decider && <div className="rectangle">
-                    Decider: {props.decider}
+                {maps.decider && <div className="rectangle">
+                    Decider: {maps.decider}
                 </div>}
             </div>
         </div>
@@ -27,33 +30,40 @@ function MapInfo(props) {
 //     );
 // }
 
+function MapScore() {
+    
+}
+
 function MatchInfo() {
+    
     return (
         <div className="match-info">
+            <div class="map-score"></div>
             <div id="top-bar">
                 <div className="left-team">
                     <div className="name-logo">
-                        <img src="../assets/UI/fnatic.png" className="team-logo" id="team1"/>
-                        <h1 className="team-name">FNC</h1>
+                        {leftTeam.logoPath && <img src={`../assets/UI/${leftTeam.logoPath}`} className="team-logo"/>}
+                        <h1 className="team-name">{leftTeam.teamName}</h1>
                     </div>
-                    <div style="width: 8%;"></div>
                     <h1 className="round-score">9</h1>
                 </div>
                 <div id="round-time"></div>
                 <div className="right-team">
                     <h1 className="round-score">3</h1>
-                    <div style="width: 8%;"></div>
                     <div className="name-logo">
-                        <h1 className="team-name">FNC</h1>
-                        <img src="../assets/UI/fnatic.png" className="team-logo" id="team1"/>
+                        <h1 className="team-name">{rightTeam.teamName}</h1>
+                        {rightTeam.logoPath && <img src={`../assets/UI/${rightTeam.logoPath}`} className="team-logo"/>}
                     </div>
                 </div>
+            </div>
+            <div class="map-score">
+
             </div>
         </div>
     );
 }
 
-function TopContainer(props) {
+export default function TopContainer() {
     return (
         <div className="top-container">
             <MapInfo />

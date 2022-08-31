@@ -22,9 +22,8 @@ body {
 
 h1 {
     margin: 0;
-    font-size: 1.5vw;
-    overflow-x: hidden;
-    overflow-y: visible;
+    font-size: 32px;
+    word-break: break-all;
 }
 
 
@@ -41,7 +40,6 @@ h1.round-score {
 }
 
 .rectangle {
-
     display: flex;
     height: 24px;
     width: 128px;
@@ -82,9 +80,39 @@ h1.round-score {
     height: 70px;
 }
 
+.map-score {
+    display: block;
+}
+
+.map-score > div {
+    margin-top: 8px;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 3px;
+    border-color: #fffdfe;
+    /* box-shadow: #aa9fa5; */
+    position: relative;
+}
+
+.attack-map-win {
+    background-color: #dd2a4e;
+}
+
+.defense-map-win {
+    background-color: #2fda92;
+}
+
 .left-team {
     display: flex;
     width: 40%;
+}
+
+.left-team .name-logo {
+    margin-left: 16%;
+    margin-right: 8%;
 }
 
 #round-time {
@@ -98,11 +126,9 @@ h1.round-score {
     margin-left: 50px; */
 }
 
-.left-team .name-logo {
-    margin-left: 16%;
-}
 
 .right-team .name-logo {
+    margin-left: 8%;
     margin-right: 16%;
 }
 
@@ -111,7 +137,7 @@ h1.round-score {
     flex-wrap: wrap;
     width: 800px;
     height: 96px;
-    background-image: url("../assets/UI/top_bar.png");
+    background-image: url("./assets/UI/top_bar.png");
 }
 
 .bottom-container {
@@ -123,14 +149,13 @@ h1.round-score {
     width: 100%;
 }
 
-.left-players {
+.bottom-container > div {
     display: block;
     width: 390px;
+    opacity: 95%;
 }
 
 .right-players {
-    display: block;
-    width: 393px;
     transform: scaleX(-1);
 }
 
@@ -138,7 +163,7 @@ h1.round-score {
     display: flex;
     width: 390px;
     height: 100px;
-    background-image: url("../assets/UI/leftPlayerBar.png");
+    background-image: url("./assets/UI/leftPlayerBar.png");
 }
 
 .agent {
@@ -147,13 +172,15 @@ h1.round-score {
 }
 
 .abilities {
-    margin-top: 5px;
+    margin-top: 10px;
     height: 60%;
     width: 75%;
+    display: flex;
+    flex-direction: row;
 }
 
 .abilities img {
-    width: 50%;
+    width: 45%;
 }
 
 .abilities > div {

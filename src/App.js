@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import TopContainer from './components/TopContainer.js'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Top />
+      <TopContainer />
     </div>
   );
 }

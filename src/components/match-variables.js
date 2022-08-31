@@ -1,31 +1,141 @@
 //Temporary values
-let maps = {
-    currentMap: "Bind",
-    nextMap: "Ascent",
-    decider: "Split"
-}
+// let maps = {
+//     current: 'Bind',
+//     next: 'Ascent',
+//     decider: 'Split'
+// }
 
-let mapScore = {
-    totalMaps: 3,
-    leftTeamScore: 1,
-    rightTeamScore: 1,
-}
+//starting from 0
+let currMapNum = 2;
+
+let maps = [
+    {
+        map: 'Bind',
+        pick: 'left',
+        winner: 'right'
+    },
+    {
+        map: 'Ascent',
+        pick: 'right',
+        winner: 'left'
+    },
+    {
+        map: 'Pearl',
+        pick: 'left'
+    },
+    {
+        map: 'Breeze',
+        pick: 'right'
+    },
+    {
+        map: 'Haven',
+        pick: 'left'
+    }
+
+]
 
 let leftTeam = {
-    player1: 'p1',
-    player2: 'p2',
-    player3: 'p3',
-    player4: 'p4',
-    player5: 'p5'
+    teamName: 'FNC',
+    logoPath: '/fnatic.png',
+    players: [
+        {
+            playerNum: 1,
+            name: 'p1',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 2,
+            name: 'p2',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 3,
+            name: 'p3',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 4,
+            name: 'p4',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 5,
+            name: 'p5',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        }
+    ],
+    
 }
 
 let rightTeam = {
     logoPath: '/fnatic.png',
-    player6: 'p1',
-    player7: 'p2',
-    player8: 'p3',
-    player9: 'p4',
-    player10: 'p5'
+    players: [
+        {
+            playerNum: 1,
+            name: 'p1',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 2,
+            name: 'p2',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 3,
+            name: 'p3',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 4,
+            name: 'p4',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        },
+        {
+            playerNum: 5,
+            name: 'p5',
+            agent: 'Brimstone',
+            grenade: 1,
+            ability1: 1,
+            ability2: 3,
+            ult: 7
+        }
+    ],
 }
 
-export default {maps, mapScore, leftNames, rightNames}
+export default {maps, mapScore, leftTeam, rightTeam}
