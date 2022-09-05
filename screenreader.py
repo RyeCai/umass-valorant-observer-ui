@@ -3,9 +3,11 @@ import numpy as np
 import pyautogui
 import imutil
 import mouse
+import keyboard
+import datetime
 
 
-def produceGameState( x = 10):
+def produceGameState(alive = 10):
 
     # Simple pyautogui screenshotting
     image = pyautogui.screenshot()
@@ -16,6 +18,14 @@ def produceGameState( x = 10):
     scoreboard = image[309:758, 572:1347] # Format of coordinates is [height, width] == [x0:x1, y0:y1], not [x0:y0 x1:y1]
     cv2.imwrite("scoreboard.png", scoreboard)
 
-    mouse.right_click()
+    for i in range(alive):
+        utility = image[530:1200, 910:1080]
+        cv2.imwrite("agentUtility" + str(i) + ".png", utility)
+        mouse.right_click()
 
-produceGameState()
+while True:
+    if keyboard.read_key() == "p":
+        produceGameState()
+        now = str(datetime.datetime.now())
+        print("Produced Game State at " + now)
+        break
