@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import TopContainer from './components/TopContainer.js'
+import Header from './components/Header.js'
+import Customizer from './'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <TopContainer />
+      <Header />
+      <Customizer />
     </div>
   );
 }

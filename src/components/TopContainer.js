@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import {maps, mapScore, leftTeam, rightTeam} from "./components/match-variables.js"
 
 function MapInfo() {
