@@ -5,6 +5,7 @@ import imutil
 import mouse
 import keyboard
 import datetime
+import time
 
 
 def produceGameState(alive = 10):
@@ -19,13 +20,23 @@ def produceGameState(alive = 10):
     cv2.imwrite("scoreboard.png", scoreboard)
 
     for i in range(alive):
-        utility = image[530:1200, 910:1080]
+        if i == 10:
+            pyautogui.press(0) #special case for 10
+        else:
+            pyautogui.press(str(i+1)) # Cycles to next player
+        time.sleep(0.01)
+
+        # Simple pyautogui screenshotting
+        image = pyautogui.screenshot()
+        # converts image from RGB to BGR.... why? Because OpenCV likes weird formats
+        image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+        utility = image[910:1080, 530:1200]
         cv2.imwrite("agentUtility" + str(i) + ".png", utility)
-        mouse.right_click()
 
 while True:
     if keyboard.read_key() == "p":
         produceGameState()
         now = str(datetime.datetime.now())
         print("Produced Game State at " + now)
+    elif keyboard.read_key() == "o":
         break
