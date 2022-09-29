@@ -5,6 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
+  height: 100%;
+
+}
+
+.background-overlay {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+}
+
+.background-overlay > .background-img {
+  background-image: url('./assets/UI/Val-background.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  z-index:1000;
+}
+
+.background-overlay > .background-color-overlay {
+  background-color:#862E3A;
+  z-index:1001;  
 }
 
 code {
@@ -12,14 +34,10 @@ code {
     monospace;
 }
 
-.App {
-  background-color: #862E3A;
-  background-image: url('./assets/UI/Val-background.png');
-}
-
 .header {
   display: flex;
   justify-content: center;
+  /* position: fixed; */
 }
 
 /* .header::before, .name-logo, .github-logo {
@@ -45,4 +63,5 @@ code {
   max-width: 40px;
   height: 40px;
   align-self: flex-end;
+  position: fixed;
 }
