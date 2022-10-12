@@ -48,16 +48,24 @@ def generateAssetPath(arrayElement):
 
 def identifyAgentHUD(pointOfViewNumber = 0):
     #for agentListElement in agentList:
-    agentListElement = "Brimstone"
+    agentListElement = "Astra"
     print(generateAssetPath(agentListElement))
     ultimateImage = cv2.imread(generateAssetPath(agentListElement), 0)
     w, h = ultimateImage.shape[::-1]
         #ultimateImage = cv2.cvtColor(ultimateImage, cv2.COLOR_BGR2GRAY) 
     imageAnalysis = cv2.imread("C:/Users/Capta/Downloads/testSS.png") #hardcoded path for testing
-    cv2.imshow("pre", imageAnalysis)
+    
     imageAnalysis = cv2.cvtColor(imageAnalysis, cv2.COLOR_BGR2GRAY)
+    cv2.imshow("pre", imageAnalysis)
+    cv2.waitKey(0)
 
     res = cv2.matchTemplate(imageAnalysis, ultimateImage, cv2.TM_CCOEFF_NORMED)
+    (_, maxVal, _, maxLoc) = cv2.minMaxLoc(res)
+    found = (maxVal, maxLoc)
+
+    print(str(found) + agentListElement)
+
+    """
     loc = np.where(res >- 0.8)
 
         #this displays the image, is temporary troubleshooting step
@@ -65,6 +73,7 @@ def identifyAgentHUD(pointOfViewNumber = 0):
         cv2.rectangle(imageAnalysis, pt, (pt[0] + w, pt[1] + h), (0, 255, 255), 2)
     cv2.imshow('detected', imageAnalysis)
     cv2.waitKey(0)
+    """
 
 
 while True:
