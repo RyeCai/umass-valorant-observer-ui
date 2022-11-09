@@ -58,7 +58,7 @@ code {
   width: 60%;
   margin:auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .team-panel {
@@ -67,9 +67,11 @@ code {
   height: 30px;
   opacity: .9;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: #eee;
   align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /* .left-team {
