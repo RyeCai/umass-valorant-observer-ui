@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header.js'
-import Customizer from './components/Customizer'
+import "./App.css";
+import "./index.css";
+import Header from "./components/Header.js";
+import Customizer from "./components/Customizer";
 
 function App() {
   return (
-    <div>
+    <div className="background-overlay">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,12 +20,9 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <div className='background-overlay'>
-        <div className='background-img'/>
-        <div className='background-color-overlay'/>
-      </div>
+
       <Header />
-      
+      <Customizer />
     </div>
   );
 }
