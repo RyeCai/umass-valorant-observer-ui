@@ -54,9 +54,31 @@ code {
   height: 100%;
 }
 
-.github-logo {
-  max-width: 40px;
-  height: 40px;
-  align-self: flex-end;
-  position: fixed;
+.container {
+  width: 60%;
+  margin:auto;
+  display: flex;
+  justify-content: space-around;
 }
+
+.team-panel {
+  width: 400px;
+  background-color: #111;
+  height: 30px;
+  opacity: .9;
+  display: flex;
+  justify-content: space-around;
+  color: #eee;
+  align-items: center;
+}
+
+/* .left-team {
+  transform: skew(-25deg);
+}
+
+
+
+.right-team {
+  transform: skew(25deg);
+} */
+

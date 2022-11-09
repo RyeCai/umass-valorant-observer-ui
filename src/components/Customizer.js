@@ -1,65 +1,59 @@
-import React, { useState } from "react";
-import { Box, Tabs, Tab } from "@mui/material";
+import {
+  Box,
+  Stack,
+  TextField,
+  Checkbox,
+  Select,
+  Divider,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Container } from "@mui/system";
+import MapSelector from "./MapSelector";
+import Team from "./Team";
 
-export default function Customizer() {
-  const [curTab, setTab] = useState("1");
-
-  const customTheme = createTheme({
-    palette: {
-      primary: {
-        light: "#112233",
-        main: "#eeeeee",
-        dark: "#778899",
-        contrastText: "#fff",
-      },
-      secondary: {
-        light: "#f0e6e6",
-        main: "#111111",
-        dark: "#3c3c3c",
-        contrastText: "#000",
-      },
-    },
-  });
-
-  function handleChange(event, newTab) {
-    setTab(newTab);
-  }
+export default function Customizer({ curMatch, handleChange }) {
   return (
-    <Container
-      sx={{
-        width: 1000,
-        height: "85%",
-        backgroundColor: "#111111",
-        opacity: 0.9,
-        marginTop: "20px",
-        borderRadius: "10px",
-      }}
+    <Stack
+      sx={{ position: "fixed", bottom: "5%", margin: "auto", width: "100%" }}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      divider={<Divider orientation="vertical" flexItem />}
+      spacing={8}
     >
-      <TabContext value={curTab}>
-        <Tabs
-          value={curTab}
-          onChange={handleChange}
-          centered
-          variant="fullWidth"
-          sx={{
-            color: "white",
-          }}
-          TabIndicatorProps={{
-            style: {
-              backgroundColor: "#EEEEEE",
-            },
-          }}
-        >
-          <Tab sx={{ color: "white" }} label="Match" value="1" />
-          <Tab sx={{ color: "white" }} label="Map" value="2" />
-        </Tabs>
-
-        <TabPanel value="1"></TabPanel>
-        <TabPanel value="2"></TabPanel>
-      </TabContext>
-    </Container>
+      <Team
+        teamName={curMatch.leftTeamName}
+        mapScore={curMatch.leftTeamWins}
+        side="left"
+        handleChange={handleChange}
+      />
+      {/* <Stack spacing={4}>
+        <TextField label="Team Name" variant="outlined" />
+        <TextField type="number" label="Map Wins" variant="outlined" />
+      </Stack> */}
+      <Stack spacing={4}>
+        <MapSelector
+          label="Current Map"
+          nextMap={curMatch.currentMap}
+          mapChange={handleChange("currentMap")}
+        />
+        <MapSelector
+          label="Next Map"
+          nextMap={curMatch.nextMap}
+          mapChange={handleChange("nextMap")}
+        />
+      </Stack>
+      <Team
+        teamName={curMatch.rightTeamName}
+        mapScore={curMatch.rightTeamWins}
+        side="left"
+        handleChange={handleChange}
+      />
+    </Stack>
   );
 }

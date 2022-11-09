@@ -1,28 +1,29 @@
 import "./App.css";
 import "./index.css";
-import Header from "./components/Header.js";
+import React, { useState } from "react";
 import Customizer from "./components/Customizer";
+import ViewingInterface from "./components/ViewingInterface";
 
 function App() {
-  return (
-    <div className="background-overlay">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+  const [curMatch, setMatch] = useState({
+    //bestOf
+    //currentBracket: "",
+    currentMap: "Ascent",
+    nextMap: "Bind",
+    leftTeamName: "Team 1",
+    leftTeamWins: 0,
+    rightTeamName: "Team 2",
+    rightTeamWins: 0,
+  });
 
-      <Header />
-      <Customizer />
+  const handleChange = (prop) => (event) => {
+    setMatch({ ...curMatch, [prop]: event.target.value });
+  };
+
+  return (
+    <div>
+      <ViewingInterface curMatch={curMatch} />
+      <Customizer curMatch={curMatch} handleChange={handleChange} />
     </div>
   );
 }
