@@ -1,22 +1,12 @@
-import {
-  Box,
-  Stack,
-  TextField,
-  Checkbox,
-  Select,
-  Divider,
-  MenuItem,
-  FormControl,
-  InputLabel,
-} from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Container } from "@mui/system";
+import { useContext } from "react";
+import { Stack, Divider } from "@mui/material";
 import MapSelector from "./MapSelector";
 import Team from "./Team";
+import { MatchContext } from "../App";
 
-export default function Customizer({ curMatch, handleChange }) {
+export default function Customizer() {
+  const match = useContext(MatchContext)[0];
+  const handleChange = useContext(MatchContext)[2];
   return (
     <Stack
       sx={{ position: "fixed", bottom: "5%", margin: "auto", width: "100%" }}
@@ -26,12 +16,7 @@ export default function Customizer({ curMatch, handleChange }) {
       divider={<Divider orientation="vertical" flexItem />}
       spacing={8}
     >
-      <Team
-        teamName={curMatch.leftTeamName}
-        mapScore={curMatch.leftTeamWins}
-        side="left"
-        handleChange={handleChange}
-      />
+      <Team side="left" />
       {/* <Stack spacing={4}>
         <TextField label="Team Name" variant="outlined" />
         <TextField type="number" label="Map Wins" variant="outlined" />
@@ -39,19 +24,19 @@ export default function Customizer({ curMatch, handleChange }) {
       <Stack spacing={4}>
         <MapSelector
           label="Current Map"
-          nextMap={curMatch.currentMap}
+          nextMap={match.currentMap}
           mapChange={handleChange("currentMap")}
         />
         <MapSelector
           label="Next Map"
-          nextMap={curMatch.nextMap}
+          nextMap={match.nextMap}
           mapChange={handleChange("nextMap")}
         />
       </Stack>
       <Team
-        teamName={curMatch.rightTeamName}
-        mapScore={curMatch.rightTeamWins}
-        side="left"
+        teamName={match.rightTeamName}
+        mapScore={match.rightTeamWins}
+        side="right"
         handleChange={handleChange}
       />
     </Stack>

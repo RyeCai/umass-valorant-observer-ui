@@ -1,22 +1,40 @@
-import React from "react";
-import { TextField, FormControl, InputLabel, Stack } from "@mui/material";
+import { useContext } from "react";
+import { TextField, Button, Stack } from "@mui/material";
+import { MatchContext } from "../App";
 
-function Team(props) {
+function Team({ side }) {
+  const [match, setMatch, handleChange] = useContext(MatchContext);
+  const handleLogoChange = (event) => {
+    setMatch({
+      ...match,
+      [`${side}TeamLogo`]: URL.createObjectURL(event.target.files[0]),
+    });
+    console.log(event.target.files[0]);
+  };
   return (
     <Stack spacing={4}>
       <TextField
         label="Team Name"
         variant="outlined"
-        value={props.teamName}
-        onChange={props.handleChange(`${props.side}TeamName`)}
+        value={match[`${side}TeamName`]}
+        onChange={handleChange(`${side}TeamName`)}
       />
       <TextField
         type="number"
         label="Map Wins"
         variant="outlined"
-        value={props.mapScore}
-        onChange={props.handleChange(`${props.side}TeamWins`)}
+        value={match[`${side}TeamWins`]}
+        onChange={handleChange(`${side}TeamWins`)}
       />
+      <Button variant="contained" component="label">
+        Upload Team Logo
+        <input
+          hidden
+          accept="image/*"
+          type="file"
+          onChange={handleLogoChange}
+        />
+      </Button>
     </Stack>
   );
 }

@@ -55,7 +55,7 @@ code {
 }
 
 .container {
-  width: 60%;
+  width: 50%;
   margin:auto;
   display: flex;
   justify-content: space-between;
@@ -72,6 +72,11 @@ code {
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+
+.team-logo {
+  max-height: 30px;
 }
 
 /* .left-team {
