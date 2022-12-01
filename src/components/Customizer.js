@@ -24,12 +24,12 @@ export default function Customizer() {
       <Stack spacing={4}>
         <MapSelector
           label="Current Map"
-          nextMap={match.currentMap}
+          map={match.currentMap}
           mapChange={handleChange("currentMap")}
         />
         <MapSelector
           label="Next Map"
-          nextMap={match.nextMap}
+          map={match.nextMap}
           mapChange={handleChange("nextMap")}
         />
       </Stack>

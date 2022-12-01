@@ -9,15 +9,15 @@ const MatchContext = createContext();
 function App() {
   const [match, setMatch] = useState({
     //bestOf
-    //currentBracket: "",
-    currentMap: "Ascent",
-    nextMap: "Bind",
+    currentBracket: "",
+    currentMap: "",
+    nextMap: "",
     leftTeamName: "Team 1",
     leftTeamWins: 0,
-    //leftTeamLogo: "/valorant-logo.png",
+    leftTeamLogo: "/valorant-logo.png",
     rightTeamName: "Team 2",
     rightTeamWins: 0,
-    //rightTeamLogo: "../assets/UI/valorant-logo.png",
+    rightTeamLogo: "/valorant-logo.png",
   });
 
   const handleChange = (prop) => (event) => {

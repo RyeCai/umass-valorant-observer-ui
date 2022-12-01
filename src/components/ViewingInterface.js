@@ -8,24 +8,29 @@ function ViewingInterface() {
     <div className="container">
       <div className="team-panel left-team">
         {match.leftTeamLogo && (
-          <img
-            className="team-logo"
-            src={match.leftTeamLogo}
-            alt="Left Team Logo"
-          />
+          <img className="team-logo" src={match.leftTeamLogo} alt="" />
         )}
-        <div>{match.leftTeamName}</div>
+        <div className="team-name">{match.leftTeamName}</div>
         <div>{match.leftTeamWins}</div>
+      </div>
+      <div className="middle-container">
+        <div className="maps">
+          {match.currentMap != "" && (
+            <div className="map-info current-map">
+              Current Map: {match.currentMap}
+            </div>
+          )}
+          {match.nextMap != "" && (
+            <div className="map-info next-map">Next Map: {match.nextMap}</div>
+          )}
+        </div>
+        <div className="bracket"></div>
       </div>
       <div className="team-panel right-team">
         <div>{match.rightTeamWins}</div>
-        <div>{match.rightTeamName}</div>
+        <div className="team-name">{match.rightTeamName}</div>
         {match.leftTeamLogo && (
-          <img
-            className="team-logo"
-            src={match.rightTeamLogo}
-            alt="Right Team Logo"
-          />
+          <img className="team-logo" src={match.rightTeamLogo} alt="" />
         )}
       </div>
     </div>

@@ -38,11 +38,12 @@ function MapSelector(props) {
     <FormControl sx={{ minWidth: 180 }}>
       <InputLabel>{props.label}</InputLabel>
       <Select
-        value={props.nextMap}
+        value={props.map}
         label={props.label}
         autoWidth
         onChange={props.mapChange}
       >
+        <MenuItem value="">None</MenuItem>
         {valMaps.map((valMap) => (
           <MenuItem key={valMap} value={valMap}>
             {valMap}
