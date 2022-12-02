@@ -8,16 +8,55 @@ import {
   Button,
   Tooltip,
   Typography,
+  Dialog,
+  DialogTitle,
+  List,
+  ListItem,
 } from "@mui/material";
 import HelpIcon from "@mui/icons-material/Help";
 import MapSelector from "./MapSelector";
 import Team from "./Team";
 import { MatchContext } from "../App";
 
+function HelpDialog({ open, handleClose }) {
+  return (
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>OBS Instructions</DialogTitle>
+      <List>
+        <ListItem>
+          <Typography>
+            1. Add this website's link as a browser source in OBS, and enter in
+            your desired broadcast resolution.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            2. Delete all of the text in the <b>Custom CSS section</b>, and then
+            press OK.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            3. Right-Click the Browser Source, click <b>Interact</b>, and change
+            settings as desired.
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            4. The settings menu can be hidden from view by pressing the{" "}
+            <b>HIDE</b> button or pressing <b>SHIFT+TAB</b> at the same time.
+          </Typography>
+        </ListItem>
+      </List>
+    </Dialog>
+  );
+}
+
 export default function Customizer() {
   const match = useContext(MatchContext)[0];
   const handleChange = useContext(MatchContext)[2];
   const [hidden, setHidden] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
 
   const handleTab = (event) => {
     if (event.shiftKey && event.key === "Tab") setHidden(!hidden);
@@ -25,6 +64,10 @@ export default function Customizer() {
 
   const handleHidden = () => {
     setHidden(!hidden);
+  };
+
+  const handleHelp = () => {
+    setHelpOpen(!helpOpen);
   };
 
   return (
@@ -41,49 +84,24 @@ export default function Customizer() {
       style={{ padding: 25, paddingTop: 0 }}
       justifyContent="center"
       alignItems="center"
-      onKeyUp={handleTab}
+      onKeyDown={handleTab}
       className={`${hidden ? "hidden" : "not-hidden"}`}
     >
-      <CardHeader
-        title={
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Tooltip title="Press Shift+Tab to Hide/Unhide settings menu">
-              <Button onClick={handleHidden}>Hide</Button>
-            </Tooltip>
-            <Tooltip
-              title={
-                <React.Fragment style={{ padding: 10 }}>
-                  <Typography>Instructions:</Typography>
-                  <ol>
-                    <li>
-                      {
-                        "Add this website as a browser source in OBS, and enter in your desired broadcast resolution."
-                      }
-                    </li>
-                    <li>
-                      {"Delete all of the text in the "}
-                      <b>{"Custom CSS"}</b> {"section, and then press OK."}
-                    </li>{" "}
-                    <li>
-                      {"Right-Click the Browser Source and press "}
-                      <b>{"Interact"}</b> {", and change settings as desired."}
-                    </li>{" "}
-                    <li>
-                      {
-                        "The settings menu can be hidden from view by pressing the "
-                      }{" "}
-                      <b>{"HIDE"}</b> {" button or pressing "}{" "}
-                      <b>{"SHIFT+TAB."}</b>
-                    </li>
-                  </ol>
-                </React.Fragment>
-              }
-            >
-              <HelpIcon />
-            </Tooltip>
-          </div>
-        }
-      />
+      {!hidden && (
+        <CardHeader
+          title={
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <Tooltip title="Press Shift+Tab to Hide/Unhide settings menu">
+                <Button onClick={handleHidden}>Hide</Button>
+              </Tooltip>
+              <Button onClick={handleHelp}>
+                <HelpIcon />
+              </Button>
+              <HelpDialog open={helpOpen} handleClose={handleHelp} />
+            </div>
+          }
+        />
+      )}
       <Stack
         direction="row"
         justifyContent="center"
