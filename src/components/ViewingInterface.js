@@ -15,16 +15,18 @@ function ViewingInterface() {
       </div>
       <div className="middle-container">
         <div className="maps">
-          {match.currentMap != "" && (
+          {match.currentMap !== "" && (
             <div className="map-info current-map">
               Current Map: {match.currentMap}
             </div>
           )}
-          {match.nextMap != "" && (
+          {match.nextMap !== "" && (
             <div className="map-info next-map">Next Map: {match.nextMap}</div>
           )}
         </div>
-        <div className="bracket"></div>
+        {match.currentBracket !== "" && (
+          <div className="bracket">{match.currentBracket}</div>
+        )}
       </div>
       <div className="team-panel right-team">
         <div>{match.rightTeamWins}</div>
