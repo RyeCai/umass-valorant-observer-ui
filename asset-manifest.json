@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/umass-valorant-observer-ui/static/css/main.12d6092c.css",
+    "main.js": "/umass-valorant-observer-ui/static/js/main.e10abb42.js",
+    "static/js/787.f5cce47d.chunk.js": "/umass-valorant-observer-ui/static/js/787.f5cce47d.chunk.js",
+    "static/media/Val-background.png": "/umass-valorant-observer-ui/static/media/Val-background.cbbecab452b138fcdc0d.png",
+    "index.html": "/umass-valorant-observer-ui/index.html",
+    "main.12d6092c.css.map": "/umass-valorant-observer-ui/static/css/main.12d6092c.css.map",
+    "main.e10abb42.js.map": "/umass-valorant-observer-ui/static/js/main.e10abb42.js.map",
+    "787.f5cce47d.chunk.js.map": "/umass-valorant-observer-ui/static/js/787.f5cce47d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12d6092c.css",
+    "static/js/main.e10abb42.js"
+  ]
+}
