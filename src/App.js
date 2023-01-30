@@ -3,6 +3,7 @@ import "./index.css";
 import React, { useState, createContext } from "react";
 import Customizer from "./components/Customizer";
 import ViewingInterface from "./components/ViewingInterface";
+import HelpDialog from "./components/HelpDialog";
 
 const MatchContext = createContext();
 
@@ -28,6 +29,7 @@ function App() {
     <MatchContext.Provider value={[match, setMatch, handleChange]}>
       <ViewingInterface />
       <Customizer />
+      <HelpDialog />
     </MatchContext.Provider>
   );
 }

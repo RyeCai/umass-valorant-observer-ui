@@ -4,9 +4,6 @@ import {
   Divider,
   TextField,
   Card,
-  CardHeader,
-  Button,
-  Tooltip,
   Typography,
   Dialog,
   DialogTitle,
@@ -26,7 +23,7 @@ function HelpDialog({ open, handleClose }) {
         <ListItem>
           <Typography>
             1. Add this website's link as a browser source in OBS, and enter in
-            your desired broadcast resolution.
+            your desired broadcast resolution i.e 1920x1080.
           </Typography>
         </ListItem>
         <ListItem>
@@ -41,12 +38,12 @@ function HelpDialog({ open, handleClose }) {
             settings as desired.
           </Typography>
         </ListItem>
-        <ListItem>
+        {/* <ListItem>
           <Typography>
             4. The settings menu can be hidden from view by pressing the{" "}
             <b>HIDE</b> button or pressing <b>SHIFT+TAB</b> at the same time.
           </Typography>
-        </ListItem>
+        </ListItem> */}
       </List>
     </Dialog>
   );
@@ -55,16 +52,16 @@ function HelpDialog({ open, handleClose }) {
 export default function Customizer() {
   const match = useContext(MatchContext)[0];
   const handleChange = useContext(MatchContext)[2];
-  const [hidden, setHidden] = useState(false);
+  //const [hidden, setHidden] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
-  const handleTab = (event) => {
-    if (event.shiftKey && event.key === "Tab") setHidden(!hidden);
-  };
+  // const handleTab = (event) => {
+  //   if (event.shiftKey && event.key === "Tab") setHidden(!hidden);
+  // };
 
-  const handleHidden = () => {
-    setHidden(!hidden);
-  };
+  // const handleHidden = () => {
+  //   setHidden(!hidden);
+  // };
 
   const handleHelp = () => {
     setHelpOpen(!helpOpen);
@@ -84,24 +81,9 @@ export default function Customizer() {
       style={{ padding: 25, paddingTop: 0 }}
       justifyContent="center"
       alignItems="center"
-      onKeyDown={handleTab}
-      className={`${hidden ? "hidden" : "not-hidden"}`}
+      // onKeyDown={handleTab}
+      // className={`${hidden ? "hidden" : "not-hidden"}`}
     >
-      {!hidden && (
-        <CardHeader
-          title={
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <Tooltip title="Press Shift+Tab to Hide/Unhide settings menu">
-                <Button onClick={handleHidden}>Hide</Button>
-              </Tooltip>
-              <Button onClick={handleHelp}>
-                <HelpIcon />
-              </Button>
-              <HelpDialog open={helpOpen} handleClose={handleHelp} />
-            </div>
-          }
-        />
-      )}
       <Stack
         direction="row"
         justifyContent="center"
