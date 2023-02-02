@@ -10,7 +10,6 @@ import {
   List,
   ListItem,
 } from "@mui/material";
-import HelpIcon from "@mui/icons-material/Help";
 import MapSelector from "./MapSelector";
 import Team from "./Team";
 import { MatchContext } from "../App";
