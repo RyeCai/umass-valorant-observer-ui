@@ -1,70 +1,13 @@
 import React, { useContext, useState } from "react";
-import {
-  Stack,
-  Divider,
-  TextField,
-  Card,
-  Typography,
-  Dialog,
-  DialogTitle,
-  List,
-  ListItem,
-} from "@mui/material";
+import { Stack, Divider, TextField, Card } from "@mui/material";
 import MapSelector from "./MapSelector";
 import Team from "./Team";
 import { MatchContext } from "../App";
 
-function HelpDialog({ open, handleClose }) {
-  return (
-    <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>OBS Instructions</DialogTitle>
-      <List>
-        <ListItem>
-          <Typography>
-            1. Add this website's link as a browser source in OBS, and enter in
-            your desired broadcast resolution i.e 1920x1080.
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>
-            2. Delete all of the text in the <b>Custom CSS section</b>, and then
-            press OK.
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <Typography>
-            3. Right-Click the Browser Source, click <b>Interact</b>, and change
-            settings as desired.
-          </Typography>
-        </ListItem>
-        {/* <ListItem>
-          <Typography>
-            4. The settings menu can be hidden from view by pressing the{" "}
-            <b>HIDE</b> button or pressing <b>SHIFT+TAB</b> at the same time.
-          </Typography>
-        </ListItem> */}
-      </List>
-    </Dialog>
-  );
-}
-
 export default function Customizer() {
   const match = useContext(MatchContext)[0];
   const handleChange = useContext(MatchContext)[2];
-  //const [hidden, setHidden] = useState(false);
-  const [helpOpen, setHelpOpen] = useState(false);
-
-  // const handleTab = (event) => {
-  //   if (event.shiftKey && event.key === "Tab") setHidden(!hidden);
-  // };
-
-  // const handleHidden = () => {
-  //   setHidden(!hidden);
-  // };
-
-  const handleHelp = () => {
-    setHelpOpen(!helpOpen);
-  };
+  //const [curTab, setTab] = useState(0);
 
   return (
     <Card
@@ -77,9 +20,8 @@ export default function Customizer() {
         right: 0,
         width: "60%",
       }}
-      style={{ padding: 25, paddingTop: 0 }}
-      justifyContent="center"
-      alignItems="center"
+      style={{ padding: 25 }}
+
       // onKeyDown={handleTab}
       // className={`${hidden ? "hidden" : "not-hidden"}`}
     >

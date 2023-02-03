@@ -46,7 +46,7 @@ export default function HelpDialog() {
     setHelpOpen(!helpOpen);
   };
   return (
-    <div style={{ position: "fixed", bottom: 5, left: 0 }}>
+    <div style={{ position: "fixed", bottom: 0, right: 0 }}>
       <Button onClick={handleHelp}>
         <HelpIcon />
       </Button>

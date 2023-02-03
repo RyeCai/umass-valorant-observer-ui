@@ -4,6 +4,10 @@
   font-family: 'Oswald', sans-serif;
 }
 
+path {
+  pointer-events: none;
+}
+
 .hidden {
   opacity: 0;
 }
@@ -94,7 +98,7 @@
   max-height: 2vw;
 }
 
- .left-team {
+.left-team {
   border-bottom-right-radius: 0.5vw;
   padding-left: 10px;
 }
