@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import {
   MenuItem,
   FormControl,
@@ -10,20 +9,26 @@ import {
 } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { MatchContext } from "../App";
 
-function MapSelector(props) {
+// Props: map selector label, map value from match context, and the handleChange function for the "match" object
+export default function MapSelector(props) {
+  const [match, setMatch, handleChange] = useContext(MatchContext);
   const [valMaps, setValMaps] = useState([]);
-  const [selected, setSelected] = useState("none");
+  //const [selected, setSelected] = useState("none");
+  const curSelector = props.label === "Current Map" ? "current" : "next";
 
-  const handleChange = (event) => {
-    setSelected((prevSelected) => {
-      let targetVal = !event.target.value
+  const handleToggleChange = (prop) => (event) => {
+    setMatch((prevSelected) => {
+      const targetVal = !event.target.value
         ? event.target.getAttribute("value")
         : event.target.value;
+      const newSelection =
+        targetVal === "none" || prevSelected[prop] !== targetVal
+          ? targetVal
+          : "none";
 
-      return targetVal === "none" || prevSelected !== targetVal
-        ? targetVal
-        : "none";
+      return { ...match, [prop]: newSelection };
     });
   };
 
@@ -62,18 +67,18 @@ function MapSelector(props) {
     <Stack direction="row">
       <ToggleButton
         value="left"
-        selected={selected === "left"}
-        onChange={handleChange}
+        selected={match[`${curSelector}Picker`] === "left"}
+        onChange={handleToggleChange(`${curSelector}Picker`)}
       >
-        <KeyboardArrowLeftIcon onChange={handleChange} value="left" />
+        <KeyboardArrowLeftIcon value="left" />
       </ToggleButton>
       <FormControl sx={{ minWidth: 180 }}>
         <InputLabel>{props.label}</InputLabel>
         <Select
-          value={props.map}
+          value={match[`${curSelector}Map`]}
           label={props.label}
           autoWidth
-          onChange={props.mapChange}
+          onChange={handleChange(`${curSelector}Map`)}
         >
           <MenuItem value="">None</MenuItem>
           {valMaps.map((valMap) => (
@@ -85,13 +90,11 @@ function MapSelector(props) {
       </FormControl>
       <ToggleButton
         value="right"
-        selected={selected === "right"}
-        onChange={handleChange}
+        selected={match[`${curSelector}Picker`] === "right"}
+        onChange={handleToggleChange(`${curSelector}Picker`)}
       >
         <KeyboardArrowRightIcon value="right" />
       </ToggleButton>
     </Stack>
   );
 }
-
-export default MapSelector;

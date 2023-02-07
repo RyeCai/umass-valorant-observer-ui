@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Stack, Divider, TextField, Card } from "@mui/material";
 import MapSelector from "./MapSelector";
 import Team from "./Team";
@@ -38,16 +38,8 @@ export default function Customizer() {
         <TextField type="number" label="Map Wins" variant="outlined" />
       </Stack> */}
         <Stack spacing={4}>
-          <MapSelector
-            label="Current Map"
-            map={match.currentMap}
-            mapChange={handleChange("currentMap")}
-          />
-          <MapSelector
-            label="Next Map"
-            map={match.nextMap}
-            mapChange={handleChange("nextMap")}
-          />
+          <MapSelector label="Current Map" />
+          <MapSelector label="Next Map" />
           <TextField
             label="Current Bracket"
             variant="outlined"

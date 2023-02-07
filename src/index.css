@@ -71,6 +71,9 @@ path {
   text-align: center;
   border-bottom-right-radius: 0.2vw;
   border-bottom-left-radius: 0.2vw;
+  display: flex;
+  justify-content: center;
+  
 }
 
 .bracket {
@@ -96,6 +99,10 @@ path {
 
 .team-logo {
   max-height: 2vw;
+}
+
+.map-pick-logo {
+  max-height: 100%;
 }
 
 .left-team {

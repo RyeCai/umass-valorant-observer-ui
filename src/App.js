@@ -12,15 +12,18 @@ function App() {
     //bestOf
     currentBracket: "",
     currentMap: "",
+    currentPicker: "none",
+    nextPicker: "none",
     nextMap: "",
     leftTeamName: "Team 1",
     leftTeamWins: 0,
-    leftTeamLogo: "/valorant-logo.png",
+    leftTeamLogo: null,
     rightTeamName: "Team 2",
     rightTeamWins: 0,
-    rightTeamLogo: "/valorant-logo.png",
+    rightTeamLogo: null,
   });
 
+  //Passed through React Context to other components so match details change
   const handleChange = (prop) => (event) => {
     setMatch({ ...match, [prop]: event.target.value });
   };
